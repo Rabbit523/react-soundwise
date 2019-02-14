@@ -1,0 +1,49 @@
+{
+  "name": "publisher",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "Publishers"
+    }
+  },
+  "properties": {
+    "publisherId": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "postgresql": {
+        "column": "publisherId"
+      }
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "paypalEmail": {
+      "type": "string",
+      "postgresql": {
+        "column": "paypalEmail"
+      }
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true,
+      "postgresql": {
+        "column": "createdAt"
+      }
+    },
+    "updatedAt": {
+      "type": "date",
+      "required": true,
+      "postgresql": {
+        "column": "updatedAt"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

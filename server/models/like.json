@@ -1,0 +1,110 @@
+{
+  "name": "like",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "Likes"
+    }
+  },
+  "properties": {
+    "likeId": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "postgresql": {
+        "column": "likeId"
+      }
+    },
+    "episodeId": {
+      "type": "string",
+      "required": false,
+      "postgresql": {
+        "column": "episodeId"
+      }
+    },
+    "announcementId": {
+      "type": "string",
+      "required": false,
+      "postgresql": {
+        "column": "announcementId"
+      }
+    },
+    "commentId": {
+      "type": "string",
+      "required": false,
+      "postgresql": {
+        "column": "commentId"
+      }
+    },
+    "userId": {
+      "type": "string",
+      "required": true,
+      "postgresql": {
+        "column": "userId"
+      }
+    },
+    "soundcastId": {
+      "type": "string",
+      "required": true,
+      "postgresql": {
+        "column": "soundcastId"
+      }
+    },
+    "timeStamp": {
+      "type": "number",
+      "postgresql": {
+        "column": "timeStamp",
+        "dataType": "bigint"
+      }
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now",
+      "postgresql": {
+        "column": "createdAt"
+      }
+    },
+    "updatedAt": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now",
+      "postgresql": {
+        "column": "updatedAt"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "soundcast": {
+      "type": "belongsTo",
+      "model": "soundcast",
+      "foreignKey": "soundcastId"
+    },
+    "episode": {
+      "type": "belongsTo",
+      "model": "episode",
+      "foreignKey": "episodeId"
+    },
+    "comment": {
+      "type": "belongsTo",
+      "model": "comment",
+      "foreignKey": "commentId"
+    },
+    "announcementId": {
+      "type": "belongsTo",
+      "model": "announcement",
+      "foreignKey": "announcementId"
+    },
+    "users": {
+      "type": "belongsTo",
+      "model": "listener",
+      "foreignKey": "userId",
+      "through": "userLike"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

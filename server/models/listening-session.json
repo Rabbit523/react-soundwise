@@ -1,0 +1,100 @@
+{
+  "name": "listeningSession",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "ListeningSessions"
+    }
+  },
+  "properties": {
+    "sessionId": {
+      "type": "number",
+      "id": true,
+      "generated": true,
+      "required": false,
+      "postgresql": {
+        "column": "sessionId"
+      }
+    },
+    "publisherId": {
+      "type": "string",
+      "required": true,
+      "postgresql": {
+        "column": "publisherId"
+      }
+    },
+    "date": {
+      "type": "string",
+      "required": true
+    },
+    "startPosition": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "column": "startPosition"
+      }
+    },
+    "endPosition": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "column": "endPosition"
+      }
+    },
+    "sessionDuration": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "column": "sessionDuration"
+      }
+    },
+    "percentCompleted": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "column": "percentCompleted"
+      }
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true,
+      "postgresql": {
+        "column": "createdAt"
+      }
+    },
+    "updatedAt": {
+      "type": "date",
+      "required": true,
+      "postgresql": {
+        "column": "updatedAt"
+      }
+    },
+    "soundcastId": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "column": "soundcastId"
+      }
+    },
+    "episodeId": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "column": "episodeId"
+      }
+    },
+    "userId": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "column": "userId"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

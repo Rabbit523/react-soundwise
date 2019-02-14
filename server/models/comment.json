@@ -1,0 +1,120 @@
+{
+  "name": "comment",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "Comments"
+    }
+  },
+  "properties": {
+    "commentId": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "postgresql": {
+        "column": "commentId"
+      }
+    },
+    "episodeId": {
+      "type": "string",
+      "required": false,
+      "postgresql": {
+        "column": "episodeId"
+      }
+    },
+    "announcementId": {
+      "type": "string",
+      "required": false,
+      "postgresql": {
+        "column": "announcementId"
+      }
+    },
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "userId": {
+      "type": "string",
+      "required": true,
+      "postgresql": {
+        "column": "userId"
+      }
+    },
+    "parentId": {
+      "type": "string",
+      "required": true,
+      "postgresql": {
+        "column": "parentId"
+      }
+    },
+    "soundcastId": {
+      "type": "string",
+      "required": true,
+      "postgresql": {
+        "column": "soundcastId"
+      }
+    },
+    "timeStamp": {
+      "type": "number",
+      "postgresql": {
+        "column": "timeStamp",
+        "dataType": "bigint"
+      }
+    },
+    "likesCount": {
+      "type": "number",
+      "postgresql": {
+        "column": "likesCount"
+      }
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now",
+      "postgresql": {
+        "column": "createdAt"
+      }
+    },
+    "updatedAt": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now",
+      "postgresql": {
+        "column": "updatedAt"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "comment": {
+      "type": "hasMany",
+      "model": "comment",
+      "foreignKey": "parentId"
+    },
+    "soundcast": {
+      "type": "belongsTo",
+      "model": "soundcast",
+      "foreignKey": "soundcastId"
+    },
+    "announcementId": {
+      "type": "belongsTo",
+      "model": "announcement",
+      "foreignKey": "announcementId"
+    },
+    "episode": {
+      "type": "belongsTo",
+      "model": "episode",
+      "foreignKey": "episodeId"
+    },
+    "users": {
+      "type": "belongsTo",
+      "model": "listener",
+      "foreignKey": "userId",
+      "through": "userComment"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

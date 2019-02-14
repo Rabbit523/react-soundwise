@@ -1,0 +1,24 @@
+.slick-override-arrow {
+    position: absolute;
+    top: 50%;
+    display: block;
+    font-size: 40px;
+    background-color: #F0EBEB;
+    border: 2px solid #AEADAD;
+    color: #4A4A4A;
+    padding: 5px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 2;
+}
+.slick-override-arrow:hover {
+    background-color: #AEADAD;
+}
+.slick-override-arrow.-prev-arrow {
+    right: auto;
+    left: -16px;
+}
+.slick-override-arrow.-next-arrow {
+    right: -16px;
+    left: auto;
+}

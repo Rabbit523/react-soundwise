@@ -1,0 +1,17 @@
+{
+  "name": "tests-selenium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tests-selenium.js",
+  "dependencies": {
+    "aws-sdk": "^2.368.0",
+    "firebase-admin": "^6.1.0",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mysoundwise",
+  "license": "ISC"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "PlatformCharges",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "stripeCustomerId": {
+      "type": "string",
+      "required": true
+    },
+    "subscriptionPlanName": {
+      "type": "string",
+      "required": true
+    },
+    "subscriptionPlanId": {
+      "type": "string",
+      "required": true
+    },
+    "subscriptionId": {
+      "type": "string",
+      "required": true
+    },
+    "chargeId": {
+      "type": "string",
+      "required": true
+    },
+    "chargeAmount": {
+      "type": "number",
+      "required": true
+    },
+    "coupon": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "publisher": {
+      "type": "belongsTo",
+      "model": "publisher",
+      "foreignKey": "publisherId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

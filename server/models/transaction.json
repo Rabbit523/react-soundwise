@@ -1,0 +1,102 @@
+{
+  "name": "transaction",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "Transactions"
+    }
+  },
+  "properties": {
+    "transactionId": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "postgresql": {
+        "column": "transactionId"
+      }
+    },
+    "invoiceId": {
+      "type": "string",
+      "postgresql": {
+        "column": "invoiceId"
+      }
+    },
+    "chargeId": {
+      "type": "string",
+      "required": true,
+      "postgresql": {
+        "column": "chargeId"
+      }
+    },
+    "refundId": {
+      "type": "string",
+      "postgresql": {
+        "column": "refundId"
+      }
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "number",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "publisherId": {
+      "type": "string",
+      "required": true,
+      "postgresql": {
+        "column": "publisherId"
+      }
+    },
+    "soundcastId": {
+      "type": "string",
+      "postgresql": {
+        "column": "soundcastId"
+      }
+    },
+    "customer": {
+      "type": "string",
+      "required": true
+    },
+    "paymentId": {
+      "type": "string",
+      "postgresql": {
+        "column": "paymentId"
+      }
+    },
+    "refund_date": {
+      "type": "date"
+    },
+    "description": {
+      "type": "string",
+      "postgresql": {
+        "column": "description"
+      }
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true,
+      "postgresql": {
+        "column": "createdAt"
+      }
+    },
+    "updatedAt": {
+      "type": "date",
+      "required": true,
+      "postgresql": {
+        "column": "updatedAt"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,11 @@
+{
+  "db": {
+    "host": "db",
+    "port": 5432,
+    "database": "soundwise",
+    "password": "111",
+    "name": "db",
+    "user": "root",
+    "connector": "postgresql"
+  }
+}

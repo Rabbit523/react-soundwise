@@ -1,0 +1,66 @@
+{
+  "name": "Event",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "story": {
+      "type": "string",
+      "required": true
+    },
+    "userId": {
+      "type": "string",
+      "required": false
+    },
+    "firstName": {
+      "type": "string",
+      "required": false
+    },
+    "lastName": {
+      "type": "string",
+      "required": false
+    },
+    "avatarUrl": {
+      "type": "string",
+      "required": false
+    },
+    "episodeId": {
+      "type": "string"
+    },
+    "likeId": {
+      "type": "string"
+    },
+    "soundcastId": {
+      "type": "string",
+      "required": false
+    },
+    "announcementId": {
+      "type": "string"
+    },
+    "publisherId": {
+      "type": "string"
+    },
+    "commentId": {
+      "type": "string"
+    },
+    "commentUserId": {
+      "type": "string"
+    },
+    "parentId": {
+      "type": "string"
+    },
+    "parentUserId": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

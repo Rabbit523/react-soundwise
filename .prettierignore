@@ -1,0 +1,5 @@
+/node_modules/*
+/client/bundle.js
+/client/js/*
+/server/scripts/ffmpeg/*
+/server/scripts/youtube-mp3-downloader/*

@@ -1,0 +1,8 @@
+{
+  "extends": "loopback",
+  "parser": "babel-eslint",
+  "rules": {
+    "object-curly-spacing": ["error", "always"],
+    "operator-linebreak": "off"
+  }
+}

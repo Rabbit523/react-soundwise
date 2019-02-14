@@ -1,0 +1,123 @@
+{
+  "name": "soundcast",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "Soundcasts"
+    }
+  },
+  "properties": {
+    "soundcastId": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "postgresql": {
+        "column": "soundcastId"
+      }
+    },
+    "publisherId": {
+      "type": "string",
+      "required": true,
+      "postgresql": {
+        "column": "publisherId"
+      }
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "imageUrl": {
+      "type": "string",
+      "required": false,
+      "postgresql": {
+        "column": "imageUrl"
+      }
+    },
+    "itunesId": {
+      "type": "string",
+      "required": false,
+      "postgresql": {
+        "column": "itunesId"
+      }
+    },
+    "category": {
+      "type": "string",
+      "required": false,
+      "postgresql": {
+        "column": "category"
+      }
+    },
+    "published": {
+      "type": "boolean",
+      "required": false,
+      "postgresql": {
+        "column": "published"
+      }
+    },
+    "rank": {
+      "type": "number",
+      "required": true,
+      "postgresql": {
+        "column": "rank"
+      }
+    },
+    "landingPage": {
+      "type": "boolean",
+      "required": false,
+      "postgresql": {
+        "column": "landingPage"
+      }
+    },
+    "forSale": {
+      "type": "boolean",
+      "required": false,
+      "postgresql": {
+        "column": "forSale"
+      }
+    },
+    "updateDate": {
+      "type": "number",
+      "required": false,
+      "postgresql": {
+        "column": "updateDate"
+      }
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true,
+      "postgresql": {
+        "column": "createdAt"
+      }
+    },
+    "updatedAt": {
+      "type": "date",
+      "required": true,
+      "postgresql": {
+        "column": "updatedAt"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "episodes": {
+      "type": "hasMany",
+      "model": "episode",
+      "foreignKey": ""
+    },
+    "users": {
+      "type": "hasMany",
+      "model": "listener",
+      "foreignKey": "userId",
+      "through": "userSoundcasts"
+    },
+    "listeningSessions": {
+      "type": "hasMany",
+      "model": "listeningSession",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

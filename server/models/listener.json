@@ -1,0 +1,85 @@
+{
+  "name": "listener",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true,
+    "postgresql": {
+      "table": "Users"
+    }
+  },
+  "properties": {
+    "userId": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "postgresql": {
+        "column": "userId"
+      }
+    },
+    "firstName": {
+      "type": "string",
+      "postgresql": {
+        "column": "firstName"
+      }
+    },
+    "lastName": {
+      "type": "string",
+      "postgresql": {
+        "column": "lastName"
+      }
+    },
+    "picURL": {
+      "type": "string",
+      "postgresql": {
+        "column": "picURL"
+      }
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true,
+      "postgresql": {
+        "column": "createdAt"
+      }
+    },
+    "updatedAt": {
+      "type": "date",
+      "required": true,
+      "postgresql": {
+        "column": "updatedAt"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "soundcasts": {
+      "type": "hasMany",
+      "model": "soundcast",
+      "foreignKey": "soundcastId",
+      "through": "userSoundcast"
+    },
+    "episodes": {
+      "type": "hasMany",
+      "model": "episode",
+      "foreignKey": "episodeId",
+      "through": "userEpisode"
+    },
+    "listeningSessions": {
+      "type": "hasMany",
+      "model": "listeningSession",
+      "foreignKey": "userId"
+    },
+    "likes": {
+      "type": "hasMany",
+      "model": "likes",
+      "foreignKey": "userId"
+    },
+    "comments": {
+      "type": "hasMany",
+      "model": "comments",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

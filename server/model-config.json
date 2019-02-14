@@ -1,0 +1,87 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../node_modules/loopback-ds-timestamp-mixin",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "listener": {
+    "dataSource": "db",
+    "public": true
+  },
+  "episode": {
+    "dataSource": "db",
+    "public": true
+  },
+  "soundcast": {
+    "dataSource": "db",
+    "public": true
+  },
+  "listeningSession": {
+    "dataSource": "db",
+    "public": true
+  },
+  "transaction": {
+    "dataSource": "db",
+    "public": true
+  },
+  "payout": {
+    "dataSource": "db",
+    "public": true
+  },
+  "comment": {
+    "dataSource": "db",
+    "public": true
+  },
+  "like": {
+    "dataSource": "db",
+    "public": true
+  },
+  "publisher": {
+    "dataSource": "db",
+    "public": true
+  },
+  "PlatformCharges": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Transfers": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Event": {
+    "dataSource": "db",
+    "public": true
+  }
+}

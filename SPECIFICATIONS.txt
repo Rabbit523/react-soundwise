@@ -1,0 +1,249 @@
+web (https://github.com/natashache/SoundwiseCMS_web):
+    1. soundcast:
+        - Each series in the library will need to be updated as the group administrator upload new episodes from the
+        web interface.
+    2. dashboard (admin only):
+        - add the menu
+        - an audio recorder on the dashboard
+        - save audios, images, and notes to AWS, get the url back and store the urls in the database
+        - administrator needs to send announcement as messages to user’s phone
+        - administrator needs to be able to see which user has listened to which episodes
+        - administrator needs to be able to add new listeners  to each series (send invitations)
+        -  An email invitation needs to be sent to listener (tell them to download the app) once they’re added, if they
+        don’t already have a Soundwise account.
+        - for file name use a uid generator (file name is the same as episode uid)
+        - We also need unique IDs for each soundcast, publisher, etc
+        - need a date/time property for each episode (date_created)
+    3. invites:
+        - The invites function: once the administrator creates a soundcast, he has to let his people know that it’s now
+        available. after he enters the email addresses of the group, we need to check if these emails are already
+        associated with Soundwise account. Sind people can only create subscriber accounts on the mobile app, if we
+        don’t find an account associated with the email in the system, that means this user has not downloaded the
+        mobile app. so we need to send an email to the user and ask them to download the app, so that they can join
+        the group.  And if we find that an email already has an account in the database, that means the person already
+        has the mobile app. In that case we do not send the email, but simply add the new soundest to this user’s
+        library, so that the person starts receiving the new soundcast without having to do anything.
+        - So the process has several steps: 
+            1. administrator creates a new soundcast and enters email addresses of his group of listeners
+              2. we check, one by one, if each email address is already associated with a soundwise account  
+            3. if yes (that means the listener has already downloaded the app before), add the new soundcast to the
+            account’s library. And the listener should receive mobile notification that a new soundcast is added.
+              4. if no(that means the person has not downloaded the app), we send an email to ask the person to download
+            the app. Once he downloads it and creates an account, we automatically add the new soundcast to his library
+        - so when we get a user email address from a group administrator, and we cannot find an account associated with
+        that email, it could be either
+            1) the user doesn’t have the app installed, or
+            2) user installed app and registered with a different email address.
+          In either case, we send an email to the unregistered email address, asking the user “do you have the app
+        installed? if not, please install it following this link and sign up with this email address. if you already
+        have the app, please open the app and add this new email address to your account".
+    4. publisher registration:
+        - The first admin of an organization will need to create a user account for herself,
+        - create a publisher for the organization,
+        - and then she has the right to make others admins of the publisher.
+mobile (https://github.com/natashache/SoundwiseCMS_mobile):
+    0. common:
+        - start a new react native project called “SoundwiseCMS_mobile”, copy and paste the useful code from the old
+        app, and then push it to the new GitHub repo for the mobile app
+    1. soundcast:
+        - update and download new episodes when app is in the background. When app is in the background, the .on() event
+        listener won’t work. we’ll probably need to use the cloud messaging function
+        https://github.com/evollu/react-native-fcm and react native background tasks
+        https://github.com/jamesisaac/react-native-background-task
+        - send push notification to user.
+        - users need to get notification for announcement from admin
+        - if he has the app installed and he doesn’t see the new soundcast, he can enter the new email in the mobile
+        app and we’ll find the new soundcast for him
+    2. background player:
+        - I had a discussion with the host of react-native-music-control on the bug. I tried their suggested fix. but
+        still couldn’t get it to work on real device
+        https://github.com/tanguyantoine/react-native-music-control/issues/53#issuecomment-317785558
+    3. refactoring:
+        - convert/repurpose UI and audio player functionalities into new app, including playing on lock screen
+    4. login/signup:
+        - in/sign up flow as specified in the mockup
+api:
+    1. statistics:
+        - the database will need to store data for each listening session with time stamp.
+        - the data need to be easily retrieved to calculate different statistics
+        - it should include date and time (unix timestamp)
+    2. soundcast:
+        - we should make accessing audio files secure. i.e. front end needs to make a request to backend for an access
+        key to AWS before making request to AWS
+    3.  DB:
+        - let's set up DB locally first. Let's use Postgres
+    4. db data
+        User:
+        {
+            "userId": "VDEGSpUQeJTs8nN3BI1ZdeT6Ek22",
+            "firstName": "Denis",
+            "lastName": "Yakovenko",
+            "picURL": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=b7a22416832612429f32d3e7cd356fd5&oe=5A262F2F",
+            "token": "reoehcnqerchqmbxmqiubr4q4brc9qu 4mruxqwbxri...",
+            soundcasts: {
+                "1231231234s": {
+                    subscribed: true,
+                    date_subscribed: "1231231234",
+                    current_period_end: "2342342345"
+                }
+            }
+        }
+
+        Soundcast:
+        {
+          "soundcastId": "1503691618714s",
+          "publisherId": "1503002103690p",
+          "title": "Founders Nextdoor"
+        }
+
+        Episode:
+        {
+          "soundcastId": "1503691618714s",
+          "publisherId": "1503002103690p",
+          "episodeId": "1504539599105e",
+          "title": "test episode title 1",
+          "soundcastTitle": "Founders Nextdoor"
+        }
+
+        listeningSession:
+        {
+          "soundcastId": "1503691618714s",
+          "publisherId": "1503002103690p",
+          "episodeId": "1504539894085e",
+          "userId": "VDEGSpUQeJTs8nN3BI1ZdeT6Ek22",
+          "date": "2017-09-03",
+          "startPosition": 1301,
+          "endPosition": 2200,
+          "sessionDuration": 899,
+          "percentCompleted":94
+        }
+firebase:
+    0. common:
+        - added three new nodes in firebase DB: soundcasts, episodes, and comments
+
+        soundcast:  {
+            "title": "Example Soundcast",
+            "creatorID": "xD5tW78sX6M96C4xpd7iOIN5Qth1",
+            "imageURL": "https://d1jzcuf08rvzm.cloudfront.net/demo/fightForYourJoy.png",
+            "episodes": {
+                "d46b4eb8-7663-11e7-b5a5-be2e44b06b34": true
+            },
+            "invited": {
+                "ilovewordsworth@gmail(dot)com": true,
+                "natasha@natashache(dot)com": true
+            },
+            "subscribed": {
+                "ilovewordsworth@gmail(dot)com": "xD5tW78sX6M96C4xpd7iOIN5Qth1"
+            }
+            publisherID: "xD5tW78sX6M96C4xpd7iOIN5Qth1"
+            last_update: 1504533216
+        }
+
+        episode: {
+            "title": "Example Episode",
+            "date_created": 1501556215,
+            "creatorID": "xD5tW78sX6M96C4xpd7iOIN5Qth1",
+            "description": "This is an example episode.", // resources
+            "url": "https://d1jzcuf08rvzm.cloudfront.net/demo/7+Instant+Gratification.mp3",
+            "actionstep": "This is an example action step.",
+            "notes": "https://d1jzcuf08rvzm.cloudfront.net/demo/Thiscouldbegood.Thiscouldbebad.Factisyouarefreetochoose.pdf",
+            "soundcastID": "5a83201c-76bd-11e7-b5a5-be2e44b06b34",
+            "likes": {
+                "keeq4re9p0v4ws": 1231231234,
+                "vcarieemgridos": 1231231234
+            },
+            "comments": {
+                "voesfmvioedkht": true,
+                "4fionviutrmrem": true
+            }
+            isPublished: true,
+            duration: 96,
+            totalListens: 34,
+        }
+
+        comment:  {
+            "voesfmvioedkht": {
+                "userID": "vcarieemgridos",
+                "timestamp": 1901756724,
+                "content": "Thanks a lot. I fully agree!",
+                "episodeID": "755047ae-76bc-11e7-b5a5-be2e44b06b34",
+                children: {
+                    "4fionviutrmrem": true,
+                },
+            },
+            "4fionviutrmrem": {
+                "userID": "keeq4re9p0v4ws",
+                "timestamp": 1501756712,
+                "content": "This is awesome!",
+                "episodeID": "755047ae-76bc-11e7-b5a5-be2e44b06b34"
+            },
+        }
+
+        invitations: {
+            a@1(dot)com: {
+                1234564565466s: true,
+                5635454325423s: true
+            }
+        }
+    1. emails node:
+        - node in the firebase DB called “emails”, with email as key and userID as content
+    2. user node:
+        - admin: {
+            "firstName": "Denis",
+            "lastName": "Yakovenko",
+            "admin": true,
+            "publisherID": "smoeist9oveshvi",
+            pic_url: 'https://...',
+            gender: 'male',
+            "soundcasts_managed": {
+                "5a83201c-76bd-11e7-b5a5-be2e44b06b34": true,
+                "35546702-76cb-11e7-b5a5-be2e44b06b34": true
+            },
+            "email": [
+                "a@1.com" / qweqwe
+            ],
+            "soundcasts": {
+                "5a83201c-76bd-11e7-b5a5-be2e44b06b34": true,
+                "35546702-76cb-11e7-b5a5-be2e44b06b34": true
+            }
+        }
+        - only the administrators will have “admin”, “publisherID”, “soundcasts_managed” properties
+    3. publisher:
+        - A publisher can have multiple soundcasts.
+        - Each soundcast has a series of episodes.
+        - A publisher can have one or more administrators who have access to the publisher account.
+        For example, the publisher is Keller Williams Realty company. The administrators are the vice president and the
+        secretary, who can upload content and distribute to the group.
+        publisher: {
+            name: 'a_publisher',
+            imageUrl: 'https://...',
+            administrators: {
+                eprhegheghgoidfugois: true,
+                cvoiuyoersqpfkqrbqoi: true,
+            },
+            sountcasts: {
+                1231231231234s: true,
+                1502366385413s: true,
+            },
+        }
+    4. Announcements:
+        - under the soundcast node
+        announcements: {
+            1231231234a: {
+                content: "woeirughweio werinf eirunw",
+                creatorID: "VDEG....",
+                date_created: "1231231234",
+                id: "1231231234a",
+                isPublished: true,
+                publisherID: "2342342345p",
+                soundcastID: "3453453456s",
+                "comments": {
+                    "voesfmvioedkht": true,
+                    "4fionviutrmrem": true
+                },
+                "likes": {
+                    "keeq4re9p0v4ws": 1231231234,
+                    "vcarieemgridos": 1231231234
+                },
+            }
+        }

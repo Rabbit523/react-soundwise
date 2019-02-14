@@ -1,0 +1,49 @@
+build_staging:
+  stage: build
+  only:
+    - develop
+  tags:
+    - staging
+  script:
+    - cp /home/soundwise/client.env client.env
+    - docker login -u $GITLAB_USERNAME -p $GITLAB_PASSWORD registry.gitlab.com
+    - docker build --build-arg NODE_ENV=staging --build-arg FIREBASE_API_KEY --build-arg FIREBASE_PROJECT_ID --build-arg FIREBASE_API_KEY --build-arg FIREBASE_MESSAGING_SENDER_ID --build-arg FIREBASE_API_KEY --build-arg STRIPE_KEY_LIVE --build-arg AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY -t $STAGING_TAG .
+    - docker push $STAGING_TAG
+
+deploy_staging:
+  stage: deploy
+  only:
+    - develop
+  tags:
+    - staging
+  script:
+    - sudo cp docker-compose-staging.yml /home/soundwise/docker-compose-staging.yml
+    - sudo GITLAB_USERNAME=$GITLAB_USERNAME GITLAB_PASSWORD=$GITLAB_PASSWORD su soundwise
+    - sudo chmod +x on_behalf.sh
+    - sudo ./on_behalf.sh soundwise "docker login -u $GITLAB_USERNAME -p $GITLAB_PASSWORD registry.gitlab.com"
+    - sudo ./on_behalf.sh soundwise "export STAGING_TAG=$STAGING_TAG && docker-compose -f /home/soundwise/docker-compose-staging.yml pull && docker-compose -p soundwise_staging -f /home/soundwise/docker-compose-staging.yml up -d"
+
+build_production:
+  stage: build
+  only:
+    - test-ci
+  tags:
+    - production
+  script:
+    - cp /home/soundwise/client.env client.env
+    - docker login -u $GITLAB_USERNAME -p $GITLAB_PASSWORD registry.gitlab.com
+    - docker build --build-arg NODE_ENV=production --build-arg FIREBASE_API_KEY --build-arg FIREBASE_PROJECT_ID --build-arg FIREBASE_API_KEY --build-arg FIREBASE_MESSAGING_SENDER_ID --build-arg FIREBASE_API_KEY --build-arg STRIPE_KEY_LIVE --build-arg AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY -t $PRODUCTION_TAG .
+    - docker push $PRODUCTION_TAG
+
+deploy_production:
+  stage: deploy
+  only:
+    - test-ci
+  tags:
+    - production
+  script:
+    - sudo cp docker-compose-production.yml /home/soundwise/docker-compose-production.yml
+    - sudo GITLAB_USERNAME=$GITLAB_USERNAME GITLAB_PASSWORD=$GITLAB_PASSWORD su soundwise
+    - sudo chmod +x on_behalf.sh
+    - sudo ./on_behalf.sh soundwise "docker login -u $GITLAB_USERNAME -p $GITLAB_PASSWORD registry.gitlab.com"
+    - sudo ./on_behalf.sh soundwise "export PRODUCTION_TAG=$PRODUCTION_TAG && docker-compose -f /home/soundwise/docker-compose-production.yml pull && docker-compose -p soundwise_production -f /home/soundwise/docker-compose-production.yml up -d"

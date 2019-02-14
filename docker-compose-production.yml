@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  api:
+    image: ${PRODUCTION_TAG}
+    restart: on-failure
+    ports:
+      - 8080:3000
+    env_file:
+      - api.env
+    depends_on:
+      - db
+    command: ./wait-for db:5432 -- pm2-runtime start ecosystem.config.js --env production
+  db:
+    image: postgres:9.3
+    restart: on-failure
+    env_file:
+      - db.env
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
+    driver: local

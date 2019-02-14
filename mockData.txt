@@ -1,0 +1,133 @@
+User:
+
+{
+  "userId": "xu0WE17yr5NmBI3Z3mCHrJws23D2",
+  "firstName": "Natasha",
+  "lastName": "Che",
+  "picURL": "https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/18193939_10101908143521895_2054920797929331029_n.jpg?oh=7b7dce8a3a53af1143c200e39bd49e64&oe=59C1DF26"
+}
+
+{
+  "userId": "VDEGSpUQeJTs8nN3BI1ZdeT6Ek22",
+  "firstName": "Denis",
+  "lastName": "Yakovenko",
+  "picURL": "https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=b7a22416832612429f32d3e7cd356fd5&oe=5A262F2F"
+}
+
+Soundcast:
+
+{
+  "soundcastId": "1503691618714s",
+  "publisherId": "1503002103690p",
+  "title": "Founders Nextdoor"
+}
+
+{
+  "soundcastId": "1505855025645s",
+  "publisherId": "1503002103690p",
+  "title": "A Soundcast On Inner Mastery"
+}
+
+Episode:
+
+{
+  "soundcastId": "1503691618714s",
+  "publisherId": "1503002103690p",
+  "episodeId": "1504539894085e",
+  "title": "test episode title 2",
+  "soundcastTitle": "Founders Nextdoor"
+}
+
+{
+  "soundcastId": "1503691618714s",
+  "publisherId": "1503002103690p",
+  "episodeId": "1504539599105e",
+  "title": "test episode title 1",
+  "soundcastTitle": "Founders Nextdoor"
+}
+
+listeningSession:
+
+{
+  "soundcastId": "1503691618714s",
+  "publisherId": "1503002103690p",
+  "episodeId": "1504539599105e",
+  "userId": "VDEGSpUQeJTs8nN3BI1ZdeT6Ek22",
+  "date": "2017-08-30",
+  "startPosition": 5,
+  "endPosition": 1005,
+  "sessionDuration": 1000,
+  "percentCompleted":13
+}
+
+{
+  "soundcastId": "1503691618714s",
+  "publisherId": "1503002103690p",
+  "episodeId": "1504539599105e",
+  "userId": "VDEGSpUQeJTs8nN3BI1ZdeT6Ek22",
+  "date": "2017-08-31",
+  "startPosition": 1006,
+  "endPosition": 2357,
+  "sessionDuration": 1351,
+  "percentCompleted":31
+}
+
+{
+  "soundcastId": "1503691618714s",
+  "publisherId": "1503002103690p",
+  "episodeId": "1504539599105e",
+  "userId": "xu0WE17yr5NmBI3Z3mCHrJws23D2",
+  "date": "2017-08-31",
+  "startPosition": 0,
+  "endPosition": 5000,
+  "sessionDuration": 5000,
+  "percentCompleted":65
+}
+
+{
+  "soundcastId": "1503691618714s",
+  "publisherId": "1503002103690p",
+  "episodeId": "1504539894085e",
+  "userId": "xu0WE17yr5NmBI3Z3mCHrJws23D2",
+  "date": "2017-08-31",
+  "startPosition": 0,
+  "endPosition": 2000,
+  "sessionDuration": 2000,
+  "percentCompleted":85
+}
+
+{
+  "soundcastId": "1503691618714s",
+  "publisherId": "1503002103690p",
+  "episodeId": "1504539894085e",
+  "userId": "xu0WE17yr5NmBI3Z3mCHrJws23D2",
+  "date": "2017-08-31",
+  "startPosition": 2000,
+  "endPosition": 2300,
+  "sessionDuration": 300,
+  "percentCompleted":99
+}
+
+{
+  "soundcastId": "1503691618714s",
+  "publisherId": "1503002103690p",
+  "episodeId": "1504539894085e",
+  "userId": "VDEGSpUQeJTs8nN3BI1ZdeT6Ek22",
+  "date": "2017-09-01",
+  "startPosition": 3,
+  "endPosition": 1300,
+  "sessionDuration": 1297,
+  "percentCompleted":55
+}
+
+{
+  "soundcastId": "1503691618714s",
+  "publisherId": "1503002103690p",
+  "episodeId": "1504539894085e",
+  "userId": "VDEGSpUQeJTs8nN3BI1ZdeT6Ek22",
+  "date": "2017-09-03",
+  "startPosition": 1301,
+  "endPosition": 2200,
+  "sessionDuration": 899,
+  "percentCompleted":94
+}

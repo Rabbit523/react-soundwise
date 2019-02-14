@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="https://www.w3.org/1999/xhtml"
+      xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://js.stripe.com/ https://vars.hotjar.com/ https://soundwise-a8e6f.firebaseapp.com/"> -->
+    <meta name="fragment" content="!">
+<!--     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mysoundwise.com/">
+    <meta property="og:title" content="Soundwise">
+    <meta property="og:description" content="Soundwise is a mobile learning platform that helps you improve your life and career through short audio lessons from top experts in personal development, science, and business.">
+    <meta property="og:image" content="https://mysoundwise.com/images/thumnail_FB.png" />
+    <title>Soundwise</title>
+    <meta name="description" content="Audio courses to help you improve your life and career from top experts in personal development, science, and business." >
+    <meta name="keywords" content="soundwise, soundwise inc, audio, mobile application, learning, online learning, online course, podcast, audio book, audible, marketing, entrepreneurship, fitness, how to, personal development, personal growth, learning on the go, online course, audio course, business, career, life, wellness, relationship, empowerment, spirituality, self help" > -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/" > -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/flat-ui-pro.css" rel="stylesheet"> -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/simple-line-icons.css" type="text/css" />
+    <!-- <link href="/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/video-react.css" rel="stylesheet">
+    <link href="/css/magnific-popup.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <!-- <link href="/css/ReactCrop.css" rel="stylesheet"> -->
+    <link href="/css/cropper.css" rel="stylesheet">
+    <!-- <link href="/css/owl.carousel.css" rel="stylesheet"> -->
+    <!-- <link href="/css/owl.transitions.css" rel="stylesheet"> -->
+    <link href="/css/themify-icons.css" rel="stylesheet">
+    <link href="/css/slick-overrides.css" rel="stylesheet">
+    <link href="/css/react-draft-wysiwyg.css" rel="stylesheet">
+    <link href="/css/audioplayer.min.css" rel="stylesheet">
+    <link href="/css/react-datetime.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://video-react.github.io/assets/video-react.css" /> -->
+    <!-- <link href="/scripts/react-activity/dist/react-activity.css" /> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <!-- <link rel="shortcut icon" href="images/icon/favicon.ico"> -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="android-chrome-icon" type="image/png" href="/images/android-chrome-192x192.png" sizes="192x192">
+    <link rel="android-chrome-icon" type="image/png" href="/images/android-chrome-512x512.png" sizes="512x512">
+    <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Font Awesome iconic font -->
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Allura&subset=latin' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <!-- slick carousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+    <!-- <script type="text/javascript" src="https://js.stripe.com/v3/"></script> -->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<!--     <script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script> -->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <!-- Start Alexa Certify Javascript -->
+    <script type="text/javascript">
+    _atrk_opts = { atrk_acct:"ZeZLq1P8cT20VR", domain:"mysoundwise.com",dynamic: true};
+    (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://certify-js.alexametrics.com/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+    </script>
+    <noscript><img src="https://certify.alexametrics.com/atrk.gif?account=ZeZLq1P8cT20VR" style="display:none" height="1" width="1" alt="" /></noscript>
+    <!-- End Alexa Certify Javascript -->
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '2602755553283998');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2602755553283998&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    <!-- Global site tag (gtag.js) - AdWords: 846832416 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-846832416"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-846832416');
+    </script>
+    <!-- End AdWords Global site tag -->
+    <script>
+        var GoogleAuth;
+        var SCOPE = 'https://www.googleapis.com/auth/youtube.readonly';
+        function handleClientLoad() {
+          gapi.load('client:auth2', initClient);
+        }
+        function initClient() {
+          var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest';
+          gapi.client.init({
+              'apiKey': 'AIzaSyDLiwTXmf73Qm4NvwUETVKYMMbWmmxmPKQ',
+              'discoveryDocs': [discoveryUrl],
+              'clientId': '86987486222-kht6bm4u9fnuirts9k5l3nr8a3svljq6.apps.googleusercontent.com',
+              'scope': SCOPE
+          }).then(function () {
+            GoogleAuth = gapi.auth2.getAuthInstance();
+          }).catch(function (error) { console.log("Google initialisation failed", error) });
+        }
+    </script>
+</head>
+<body >
+<!--     <script src="https://cdn.ravenjs.com/3.20.1/raven.min.js"
+            crossorigin="anonymous"></script> -->
+<!--     <script type="text/javascript" src="../node_modules/raven-js/dist/raven.js"></script> -->
+    <script> window.prerenderReady = false; </script>
+    <div id='root'>
+    </div>
+    <audio preload = 'auto' id='audio'>
+        <source src='' id='audioSource'>
+    </audio>
+    <script type="text/javascript" src='/bundle.js'></script>
+    <!-- javascript libraries -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.appear.js"></script>
+    <script type="text/javascript" src="/js/smooth-scroll.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <!-- wow animation -->
+    <!-- <script type="text/javascript" src="/js/wow.min.js"></script> -->
+    <!-- owl carousel -->
+    <!-- <script type="text/javascript" src="/js/owl.carousel.min.js"></script> -->
+    <!-- images loaded -->
+    <script type="text/javascript" src="/js/imagesloaded.pkgd.min.js"></script>
+    <!-- isotope -->
+    <script type="text/javascript" src="/js/jquery.isotope.min.js"></script>
+    <!-- navigation -->
+    <script type="text/javascript" src="/js/jquery.nav.js"></script>
+    <!-- equalize -->
+    <script type="text/javascript" src="/js/equalize.min.js"></script>
+    <!-- fit videos -->
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <!-- number counter -->
+    <script type="text/javascript" src="/js/jquery.countTo.js"></script>
+    <!-- time counter  -->
+    <!-- <script type="text/javascript" src="/js/counter.js"></script> -->
+    <!-- main -->
+    <!-- <script type="text/javascript" src="/js/main.js"></script> -->
+    <!-- popup scripts start -->
+    <!-- popup scripts end -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-93258410-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script>
+        // <!-- Hotjar Tracking -->
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:471489,hjsv:5};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <!-- begin olark code -->
+    <script type="text/javascript" async> ;(function(o,l,a,r,k,y){if(o.olark)return; r="script";y=l.createElement(r);r=l.getElementsByTagName(r)[0]; y.async=1;y.src="//"+a;r.parentNode.insertBefore(y,r); y=o.olark=function(){k.s.push(arguments);k.t.push(+new Date)}; y.extend=function(i,j){y("extend",i,j)}; y.identify=function(i){y("identify",k.i=i)}; y.configure=function(i,j){y("configure",i,j);k.c[i]=j}; k=y._={s:[],t:[+new Date],c:{},l:a}; })(window,document,"static.olark.com/jsclient/loader.js");
+    /* custom configuration goes here (www.olark.com/documentation) */
+    olark.identify('3059-475-10-2707');</script>
+    <!-- end olark code -->
+    <script async defer src="https://apis.google.com/js/api.js"
+            onload="this.onload=function(){}; handleClientLoad()"
+            onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+</body>
